@@ -18,7 +18,7 @@ namespace Core.Caching
         public RedisCacheService(IOptions<RedisConfiguration> redisConfig)
         {
             _redisConfig = redisConfig;
-            conf = new RedisEndpoint { Host = _redisConfig.Value.RedisEndPoint, Port = _redisConfig.Value.RedisPort, Password = "", RetryTimeout = 1000 };
+            conf = new RedisEndpoint { Host = _redisConfig.Value.RedisEndPoint, Port = _redisConfig.Value.RedisPort, Password = "", RetryTimeout = _redisConfig.Value.RedisTimeout };
         }
 
         public T Get<T>(string key)
